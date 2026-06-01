@@ -41,10 +41,13 @@ export const createProduct = async (req, res) => {
 
         const { name, description, price, stock } = req.body;
 
-        // Consumo de API externa con Axios (DummyJSON) para evitar el bloqueo
-        const randomApiId = Math.floor(Math.random() * 100) + 1; // Un ID entre 1 y 100
-        const apiRes = await axios.get(`https://dummyjson.com/products/${randomApiId}`);
-        const image_url = apiRes.data.images[0]; // Extraemos la primera imagen del array
+        // Consumo de API externa (DummyJSON) filtrando SÓLO por zapatos
+        const apiRes = await axios.get('https://dummyjson.com/products/category/mens-shoes');
+        const shoesList = apiRes.data.products;
+        
+        // Escogemos un zapato al azar de esa lista
+        const randomShoe = shoesList[Math.floor(Math.random() * shoesList.length)];
+        const image_url = randomShoe.images[0]; // Extraemos la imagen
 
         // Guardar en MySQL
         const [result] = await pool.query(
