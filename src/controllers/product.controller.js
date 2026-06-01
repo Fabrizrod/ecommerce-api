@@ -41,10 +41,10 @@ export const createProduct = async (req, res) => {
 
         const { name, description, price, stock } = req.body;
 
-        // Consumo de API externa con Axios (FakeStoreAPI) para obtener imagen aleatoria
-        const randomApiId = Math.floor(Math.random() * 20) + 1; // Un ID entre 1 y 20
-        const apiRes = await axios.get(`https://fakestoreapi.com/products/${randomApiId}`);
-        const image_url = apiRes.data.image; // Extraemos la URL de la imagen
+        // Consumo de API externa con Axios (DummyJSON) para evitar el bloqueo
+        const randomApiId = Math.floor(Math.random() * 100) + 1; // Un ID entre 1 y 100
+        const apiRes = await axios.get(`https://dummyjson.com/products/${randomApiId}`);
+        const image_url = apiRes.data.images[0]; // Extraemos la primera imagen del array
 
         // Guardar en MySQL
         const [result] = await pool.query(
