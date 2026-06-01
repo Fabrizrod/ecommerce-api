@@ -1,16 +1,23 @@
-# Ecommerce API - Laboratorio Node.js & MySQL
+Ecommerce API - Laboratorio Node.js y MySQL
 
-Este es el backend de un sistema básico de ecommerce desarrollado con Express.js y MySQL. Incluye operaciones CRUD completas y consume una API externa (FakeStoreAPI) para asignar imágenes automáticamente a los nuevos productos.
+Este es el backend de un sistema basico de ecommerce desarrollado con Express.js y MySQL. Incluye operaciones CRUD y consume una API externa (FakeStoreAPI) para asignar imagenes automaticamente a los productos.
 
-## 🚀 Tecnologías utilizadas
-- Node.js & Express.js
-- MySQL (mysql2/promise)
-- Joi (Validación de datos)
-- Axios (Consumo de API Externa)
-- Morgan & Cors (Middlewares)
+Tecnologias utilizadas:
 
-## 🛠️ Instrucciones de instalación local
+Node.js y Express.js
 
-1. Clonar el repositorio:
-   ```bash
-   git clone <TU_URL_DE_GITHUB>
+MySQL
+
+Joi
+
+Axios
+
+Morgan y Cors
+
+Instrucciones de instalacion local:
+
+Instalar dependencias ejecutando: npm install
+
+Crear un archivo .env en la raiz con tu configuracion de XAMPP (DB_HOST=localhost, DB_USER=root, DB_PASSWORD=, DB_NAME=ecommerce_db)
+
+Iniciar el servidor ejecutando: npm run dev
